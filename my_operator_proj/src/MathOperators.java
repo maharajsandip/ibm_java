@@ -26,11 +26,3 @@ public class MathOperators {
         System.out.println("Precise Division: " + (num3 / num4));
     }
 }
-
-echo "# ibm_java" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/maharajsandip/ibm_java.git
-git push -u origin main
