@@ -14,6 +14,7 @@ public class BooksMenu {
             return book2;
         }
     }
+
 	public static void main(String s[]) {
 		Scanner scanner = new Scanner(System.in);  // Create a Scanner object
 		Book[] books = new Book[10];
@@ -26,13 +27,16 @@ public class BooksMenu {
                                 "any other key to exit");
 			String userAction = scanner.nextLine();
 
+            // view books
 			if (userAction.equals("1")) {
 				for(int i = 0; i < books.length; i++) {
 					if(books[i] != null) {
 						System.out.println(books[i]);
 					}
 				}
-			} else if (userAction.equals("2")) {
+			} 
+            // add books
+            else if (userAction.equals("2")) {
 				if(bkIdx == 10) {
 					System.out.println("10 books added already. Cannot add any more books!");
 					continue;
@@ -53,13 +57,20 @@ public class BooksMenu {
 				bkTmp.setPrice(tmpPrice);
 
 				books[bkIdx++] = bkTmp;
-			} else if (userAction.equals("3")) {
-                System.out.println("enter index of the first book to compare");
+			} 
+            // compare book prices
+            else if (userAction.equals("3")) {
+                System.out.println("Enter index of the first book to compare");
                 int bkIdx_1 = Integer.parseInt(scanner.nextLine());
 
-                System.out.println("enter index of the second book to compare");
+                System.out.println("Enter index of the second book to compare");
                 int bkIdx_2 = Integer.parseInt(scanner.nextLine());
 
+                if (bkIdx_1 > 10 || bkIdx_2 > 10) {
+                    System.out.println("There are only 10 books. Please enter a number between 1...10");
+                    scanner.close();
+                    break;
+                }
                 if (books[bkIdx_2] != null && books[bkIdx_2] != null) {
                     System.out.println("Details of the expensive book is\n" + 
                                         getExpensiveBook(books[bkIdx_1], books[bkIdx_2]));
