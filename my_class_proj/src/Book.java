@@ -3,11 +3,13 @@ public class Book implements Cloneable {
     private String author;
     private float price;
 
+    // default constructor
     public Book () {
         this.title = null;
         this.author = null;
     }
 
+    // overloaded constructor
     public Book(String title, String author, float price) {
         this.title = title;
         this.author = author;
@@ -47,5 +49,19 @@ public class Book implements Cloneable {
         return "Title - " + this.title + 
                 "\nAuthor - " + this.author + 
                 "\nPrice - "+ String.format("%.2f", this.price);
+    }
+    
+    /**
+     * Compare the two books
+     * @param otherBook
+     * @return
+     */
+    public boolean equals (Book otherBook) {
+        if (this.title.equals(otherBook.getTitle()) &&  // use the getter methods instead
+            this.author.equals(otherBook.getAuthor()) && 
+            this.price == otherBook.getPrice()) {
+            return true;
+        }
+        return false;
     }
 }

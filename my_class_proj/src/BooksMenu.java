@@ -15,7 +15,7 @@ public class BooksMenu {
         }
     }
 
-	public static void main(String s[]) {
+	public static void main(String s[]) throws ClassNotFoundException {
 		Scanner scanner = new Scanner(System.in);  // Create a Scanner object
 		Book[] books = new Book[10];
 		int bkIdx = 0;
@@ -42,21 +42,13 @@ public class BooksMenu {
 					continue;
 				}
 
-				System.out.println("Enter book title");
-				String tmpTitle = scanner.nextLine();
+				System.out.println("Enter book index to clone:");
+				int cloneIndex = Integer.parseInt(scanner.nextLine());
 
-				System.out.println("Enter book author");
-				String tmpAuthor = scanner.nextLine();
+                if (books[cloneIndex] != null) {
+                    books[bkIdx++] = (Book)books[cloneIndex].clone();
 
-				System.out.println("Enter book price");
-				float tmpPrice = Float.parseFloat(scanner.nextLine());
-
-				Book bkTmp = new Book();
-				bkTmp.setTitle(tmpTitle);
-				bkTmp.setAuthor(tmpAuthor);
-				bkTmp.setPrice(tmpPrice);
-
-				books[bkIdx++] = bkTmp;
+                }
 			} 
             // compare book prices
             else if (userAction.equals("3")) {

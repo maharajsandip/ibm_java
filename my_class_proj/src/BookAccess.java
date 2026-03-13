@@ -15,6 +15,20 @@ public class BookAccess {
         System.out.println(priceCmp);
     }
 
+
+    /**
+     * compare the two book for each of its attributes
+     * @param book1
+     * @param book2
+     */
+    private static void compareBooks (Book book1, Book book2) {
+        if (book1.equals(book2)) {
+            System.out.println("The two books are the same.");
+        } else {
+            System.out.println("The two books are different.");
+        }
+    }
+
 	public static void main(String s[]) throws CloneNotSupportedException {
 		Book book1 = new Book("Atomic Habits", "James Clear", 30.00f);
 
