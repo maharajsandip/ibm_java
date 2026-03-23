@@ -69,7 +69,9 @@ public class BooksMenu {
                 } else {
                     System.out.println("One of the books is null");
                 }
-            } else {
+            } 
+            // exit
+            else {
                 scanner.close();
 				break;
 			}

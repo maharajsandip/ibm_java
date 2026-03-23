@@ -6,11 +6,11 @@ public class BookAccess {
         String priceCmp = "";
 
         if (book1Price < book2Price) {
-            priceCmp = book1.getTitle() + " costs less than " + book2.getTitle();
+            priceCmp = '"' + book1.getTitle() + "\" costs less than \"" + book2.getTitle() + '"';
         } else if (book1Price == book2Price) {
-            priceCmp = book1.getTitle() + " costs as much as " + book2.getTitle();
+            priceCmp = '"' + book1.getTitle() + "\" costs as much as \"" + book2.getTitle() + '"';
         } else {
-            priceCmp = '"' + book1.getTitle() + '"' + " costs more than \"" + book2.getTitle() + '"';
+            priceCmp = '"' + book1.getTitle() + "\" costs more than \"" + book2.getTitle() + '"';
         }
         System.out.println(priceCmp);
     }
@@ -21,7 +21,7 @@ public class BookAccess {
      * @param book1
      * @param book2
      */
-    private static void compareBooks (Book book1, Book book2) {
+    private static void compareBooks(Book book1, Book book2) {
         if (book1.equals(book2)) {
             System.out.println("The two books are the same.");
         } else {
@@ -47,5 +47,7 @@ public class BookAccess {
         Book book3 = (Book)(book1.clone());
         System.out.println("The third book cloned object is ");
         System.out.println(book3);
+
+        compareBooks(book1, book3);
 	}
 }

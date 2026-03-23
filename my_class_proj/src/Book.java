@@ -46,7 +46,7 @@ public class Book implements Cloneable {
     }
 
     public String toString() {
-        return "Title - " + this.title + 
+        return "Title - " + getTitle() + // can I use the getter method instead?
                 "\nAuthor - " + this.author + 
                 "\nPrice - "+ String.format("%.2f", this.price);
     }
@@ -56,7 +56,8 @@ public class Book implements Cloneable {
      * @param otherBook
      * @return
      */
-    public boolean equals (Book otherBook) {
+    @Override
+    public boolean equals(Book otherBook) {
         if (this.title.equals(otherBook.getTitle()) &&  // use the getter methods instead
             this.author.equals(otherBook.getAuthor()) && 
             this.price == otherBook.getPrice()) {
@@ -64,4 +65,21 @@ public class Book implements Cloneable {
         }
         return false;
     }
+
+    // @Override
+    // public boolean equals(Object obj) {
+    //     // 1. Check if it's the exact same memory address
+    //     if (this == obj) return true;
+        
+    //     // 2. Check if the other object is actually a Book
+    //     if (!(obj instanceof Book)) return false;
+        
+    //     // 3. Cast it to a Book so we can see the fields
+    //     Book otherBook = (Book) obj;
+        
+    //     // 4. Compare the actual data
+    //     return Float.compare(otherBook.price, this.price) == 0 &&
+    //         this.title.equals(otherBook.title) &&
+    //         this.author.equals(otherBook.author);
+    // }
 }
