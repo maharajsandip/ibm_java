@@ -70,24 +70,24 @@ public class StringOps {
 		// System.out.println("s1.substring(7) " + s1.substring(7));
 
         // Practice
-        String s1 = "Maple Tree";
-        String s2 = "Maple Tree";
-        System.out.println("s1 == s2 " + (s1 == s2));
+        // String s1 = "Maple Tree";
+        // String s2 = "Maple Tree";
+        // System.out.println("s1 == s2 " + (s1 == s2));
 
-        String s3 = "Maple Tree";
-        System.out.println("s1 == s3 " + (s1 == s3));
-        System.out.println("s1.equals(s3) " + s1.equals(s3));
+        // String s3 = "Maple Tree";
+        // System.out.println("s1 == s3 " + (s1 == s3));
+        // System.out.println("s1.equals(s3) " + s1.equals(s3));
 
-        String subStr_1 = s1.substring(0, 5);
-        String subStr_2 = s1.substring(6, s3.length());
-        System.out.println("subStr_1 " + subStr_1);
-        System.out.println("subStr_2 " + subStr_2);
+        // String subStr_1 = s1.substring(0, 5);
+        // String subStr_2 = s1.substring(6, s3.length());
+        // System.out.println("subStr_1 " + subStr_1);
+        // System.out.println("subStr_2 " + subStr_2);
 
-        String concatStr = subStr_1.concat(" ").concat(subStr_2);
-        System.out.println("concatStr " + concatStr);
+        // String concatStr = subStr_1.concat(" ").concat(subStr_2);
+        // System.out.println("concatStr " + concatStr);
 
-        System.out.println("concatStr.toLowerCase() " + concatStr.toLowerCase());
-        System.out.println("concatStr.toUpperCase() " + concatStr.toUpperCase());
+        // System.out.println("concatStr.toLowerCase() " + concatStr.toLowerCase());
+        // System.out.println("concatStr.toUpperCase() " + concatStr.toUpperCase());
     }
 
 }
