@@ -15,13 +15,14 @@ public class BooksMenu {
         }
     }
 
-	public static void main(String s[]) throws ClassNotFoundException {
+	public static void main(String s[]) throws ClassNotFoundException, CloneNotSupportedException {
 		Scanner scanner = new Scanner(System.in);  // Create a Scanner object
 		Book[] books = new Book[10];
 		int bkIdx = 0;
 
 		while(true) {
-			System.out.println("Press 1 to view books\n" +
+			System.out.println("Press\n" + 
+                                "1 to view books\n" +
                                 "2 to add books\n" +
                                 "3 to compare book prices\n" +
                                 "any other key to exit");
@@ -42,15 +43,33 @@ public class BooksMenu {
 					continue;
 				}
 
-				System.out.println("Enter book index to clone:");
-				int cloneIndex = Integer.parseInt(scanner.nextLine());
+                System.out.println("Enter book title");
+				String tmpTitle = scanner.nextLine();
 
-                if (books[cloneIndex] != null) {
-                    books[bkIdx++] = (Book)books[cloneIndex].clone();
+				System.out.println("Enter book author");
+				String tmpAuthor = scanner.nextLine();
 
-                }
+				System.out.println("Enter book price");
+				float tmpPrice = Float.parseFloat(scanner.nextLine());
+
+                // create the book object and set its attributes from user input
+                // and store at current index
+				Book bkTmp = new Book();
+				bkTmp.setTitle(tmpTitle);
+				bkTmp.setAuthor(tmpAuthor);
+				bkTmp.setPrice(tmpPrice);
+				books[bkIdx++] = bkTmp;
+
+				// System.out.println("Enter book index to clone:");
+				// int cloneIndex = Integer.parseInt(scanner.nextLine());
+
+                // if (books[cloneIndex] != null) {
+                //     books[bkIdx++] = (Book)books[cloneIndex].clone();
+
+                // }
 			} 
-            // compare book prices
+            // compare book prices. The usper input is set to 1...10 therefore need to subtract to account
+            // for 0 indexing.
             else if (userAction.equals("3")) {
                 System.out.println("Enter index of the first book to compare");
                 int bkIdx_1 = Integer.parseInt(scanner.nextLine());
@@ -58,14 +77,14 @@ public class BooksMenu {
                 System.out.println("Enter index of the second book to compare");
                 int bkIdx_2 = Integer.parseInt(scanner.nextLine());
 
-                if (bkIdx_1 > 10 || bkIdx_2 > 10) {
+                if ((bkIdx_1 < 1 || bkIdx_1 > 10) || (bkIdx_2 < 1 || bkIdx_2 > 10)) {
                     System.out.println("There are only 10 books. Please enter a number between 1...10");
                     scanner.close();
                     break;
                 }
-                if (books[bkIdx_2] != null && books[bkIdx_2] != null) {
+                if (books[bkIdx_1 - 1] != null && books[bkIdx_2 - 1] != null) {
                     System.out.println("Details of the expensive book is\n" + 
-                                        getExpensiveBook(books[bkIdx_1], books[bkIdx_2]));
+                                        getExpensiveBook(books[bkIdx_1 - 1], books[bkIdx_2 - 1]));
                 } else {
                     System.out.println("One of the books is null");
                 }

@@ -46,9 +46,9 @@ public class Book implements Cloneable {
     }
 
     public String toString() {
-        return "Title - " + getTitle() + // can I use the getter method instead?
-                "\nAuthor - " + this.author + 
-                "\nPrice - "+ String.format("%.2f", this.price);
+        return "Title - " + getTitle() + 
+                "\nAuthor - " + getAuthor() + 
+                "\nPrice - "+ String.format("%.2f", getPrice());
     }
     
     /**
@@ -56,15 +56,15 @@ public class Book implements Cloneable {
      * @param otherBook
      * @return
      */
-    @Override
-    public boolean equals(Book otherBook) {
-        if (this.title.equals(otherBook.getTitle()) &&  // use the getter methods instead
-            this.author.equals(otherBook.getAuthor()) && 
-            this.price == otherBook.getPrice()) {
-            return true;
-        }
-        return false;
-    }
+    // @Override
+    // public boolean equals(Book otherBook) {
+    //     if (this.title.equals(otherBook.getTitle()) &&  // use the getter methods instead
+    //         this.author.equals(otherBook.getAuthor()) && 
+    //         this.price == otherBook.getPrice()) {
+    //         return true;
+    //     }
+    //     return false;
+    // }
 
     // @Override
     // public boolean equals(Object obj) {
