@@ -68,8 +68,7 @@ public class BooksMenu {
 
                 // }
 			} 
-            // compare book prices. The usper input is set to 1...10 therefore need to subtract to account
-            // for 0 indexing.
+            // compare book prices. 
             else if (userAction.equals("3")) {
                 System.out.println("Enter index of the first book to compare");
                 int bkIdx_1 = Integer.parseInt(scanner.nextLine());
@@ -77,14 +76,14 @@ public class BooksMenu {
                 System.out.println("Enter index of the second book to compare");
                 int bkIdx_2 = Integer.parseInt(scanner.nextLine());
 
-                if ((bkIdx_1 < 1 || bkIdx_1 > 10) || (bkIdx_2 < 1 || bkIdx_2 > 10)) {
+                if ((bkIdx_1 < 0 || bkIdx_1 > 9) || (bkIdx_2 < 1 || bkIdx_2 > 10)) {
                     System.out.println("There are only 10 books. Please enter a number between 1...10");
                     scanner.close();
                     break;
                 }
-                if (books[bkIdx_1 - 1] != null && books[bkIdx_2 - 1] != null) {
+                if (books[bkIdx_1] != null && books[bkIdx_2] != null) {
                     System.out.println("Details of the expensive book is\n" + 
-                                        getExpensiveBook(books[bkIdx_1 - 1], books[bkIdx_2 - 1]));
+                                        getExpensiveBook(books[bkIdx_1], books[bkIdx_2]));
                 } else {
                     System.out.println("One of the books is null");
                 }
