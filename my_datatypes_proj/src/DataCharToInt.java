@@ -4,6 +4,6 @@ public class DataCharToInt {
         System.out.println("char: " + letter);
 
         int letter_int = (int)letter;
-        System.out.println("ASCII value of a id: " + letter_int);
+        System.out.println("ASCII value of a is: " + letter_int);
     }
 }

@@ -64,10 +64,11 @@ public class ArrayAccess {
 
         // exercise 2
         String myStr = "The quick brown fox jumped over the lazy dog";
-        // char char_array[] = myStr.replaceAll("\\s", "").toCharArray();
+        char char_array[] = myStr.replaceAll("\\s", "").toCharArray();
 
         for (int i = 0; i < char_array.length; i++) {
-            System.out.println(char_array[i]);
+            System.out.print(char_array[i]);
         }
+        System.out.println();
     }
 }
